@@ -13,15 +13,15 @@
     <form id="fitness" action="process.php" method="POST">
         <div enter-name>
             <p>Имя</p>
-            <input type="text" name="username" placeholder="Введите имя">
+            <input type="text" name="name" placeholder="Введите имя">
         </div>
         <div enter-email>
             <p>Электронная почта</p>
             <input type="email" name="email" placeholder="Введите адрес">
         </div>
-        <div entare-age>
-            <p>Дата рождения</p>
-            <input type="date" name="birth-date">
+        <div enter-age>
+            <p>Возраст</p>
+            <input type="number" name="age">
         </div>
         <div tariff>
             <p>Тарифный план</p>
@@ -34,7 +34,7 @@
         </select>
         </div>
         <div personal-trainer>
-            <input type="checkbox" name="personal-trainer">Хочу заниматься с тренером<br>
+            <input type="checkbox" name="personal_trainer">Хочу заниматься с тренером<br>
         </div>
         <div time-of-visits>
             <p>Время посещения</p>
@@ -47,6 +47,7 @@
         <button type="submit">Отправить</button>
         </div>
     </form>
+    
     <script src="script.js"></script>
 </body>
 </html>

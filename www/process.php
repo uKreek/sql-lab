@@ -1,21 +1,22 @@
 <?php
 
-session_start();  
+session_start(); 
 
-$username = htmlspecialchars($_POST['username']);
+require 'db.php';
+require 'Guest.php';
+
+$guests = new Guest($pdo);
+
+
+$name = htmlspecialchars($_POST['name']);
 $email = htmlspecialchars($_POST['email'] ?? '');
-
-setcookie("username", $username);
-setcookie("email", $email);
-
-$_SESSION['username'] = $username;
-$_SESSION['email'] = $email;
-
-$line = $username . ";" . $email . "\n";
-file_put_contents("data.txt", $line, FILE_APPEND);
+$age = intval($_POST['age']);
+$tariff = htmlspecialchars($_POST['tariff'] ?? '');
+$personal_trainer = isset($_POST['agree']) ? 1 : 0;
+$time_of_visits = $_POST['time_of_visits'] ?? '';
 
 $errors = [];
-if(empty($username)) $errors[] = "Имя не может быть пустым";
+if(empty($name)) $errors[] = "Имя не может быть пустым";
 if(!filter_var($email, FILTER_VALIDATE_EMAIL)) $errors[] = "Некорректный email";
 
 if(!empty($errors)){
@@ -24,10 +25,15 @@ if(!empty($errors)){
     exit();
 }
 
+setcookie("name", $name);
+setcookie("email", $email);
+
+$_SESSION['name'] = $name;
+$_SESSION['email'] = $email;
+
+$line = $name . ";" . $email . "\n";
+file_put_contents("data.txt", $line, FILE_APPEND);
 
 
 header("Location: index.php");
-exit();
-
-
-
+    exit();
