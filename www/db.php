@@ -16,12 +16,13 @@ try {
 
     $sql = "CREATE TABLE IF NOT EXISTS guests (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
+    username VARCHAR(100) NOT NULL,
     email VARCHAR(100) NOT NULL,
     age INT,
     tariff VARCHAR(100),
     personal_trainer TINYINT(1),
-    time_of_visits VARCHAR(50));
+    time_of_visits VARCHAR(50),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
     ";
 
     $pdo->exec($sql);;

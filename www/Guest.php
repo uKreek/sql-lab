@@ -6,11 +6,11 @@ class Guest {
         $this->pdo = $pdo;
     }
 
-    public function add($name, $age, $faculty, $personal_trainer, $time_of_visits) {
+    public function add($username, $email, $age, $tariff, $personal_trainer, $time_of_visits) {
         $stmt = $this->pdo->prepare(
-            "INSERT INTO guests (name, email, age, personal_trainer, time_of_visits) VALUES (?, ?, ?, ?, ?)"
+            "INSERT INTO guests (username, email, age, tariff, personal_trainer, time_of_visits) VALUES (?, ?, ?, ?, ?, ?)"
         );
-        $stmt->execute([$name, $email, $age, $personal_trainer, $time_of_visits]);
+        $stmt->execute([$username, $email, $age, $tariff, $personal_trainer, $time_of_visits]);
     }
 
     public function getAll() {
@@ -18,9 +18,9 @@ class Guest {
         return $stmt->fetchAll();
     }
 
-    public function update($id, $name) {
-        $stmt = $this->pdo->prepare("UPDATE guests SET name=? WHERE id=?");
-        $stmt->execute([$name, $id]);
+    public function update($id, $username) {
+        $stmt = $this->pdo->prepare("UPDATE guests SET username=? WHERE id=?");
+        $stmt->execute([$username, $id]);
     }
 
     public function delete($id) {

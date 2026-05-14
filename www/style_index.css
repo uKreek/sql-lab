@@ -23,7 +23,7 @@ body {
     margin: 0 auto;
 }
 
-h1, h3 { color: var(--primary); }
+h1, h2, h3 { color: var(--primary); }
 
 /* Карточки */
 .card {
@@ -35,15 +35,6 @@ h1, h3 { color: var(--primary); }
     border-left: 5px solid var(--primary);
 }
 
-/* API данные (форматирование JSON/Массива) */
-pre {
-    background: #fff;
-    color: var(--primary);
-    padding: 15px;
-    border-radius: 8px;
-    overflow-x: auto;
-    font-size: 0.9em;
-}
 
 /* Навигация */
 .nav {
@@ -65,11 +56,24 @@ pre {
 
 .nav a:hover { opacity: 0.7; }
 
-/* Ошибки */
-.error-list {
-    background: #fee;
-    color: #c00;
-    border-radius: 8px;
-    padding: 5px;
+.table {
+    text-align: center;
+	width: 100%;
+	margin-bottom: 20px;
+	border: 10px solid #F2F8F8;
+	border-top: 3px solid #F2F8F8;
+	border-collapse: collapse; 
+}
+.table th {
+	font-weight: bold;
+	padding: 5px;
+	background: #F2F8F8;
+	border: none;
+	border-bottom: 3px solid #F2F8F8;
+}
+.table td {
+	padding: 5px;
+	border: none;
+	border-bottom: 5px solid #F2F8F8;
 }
 

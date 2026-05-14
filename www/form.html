@@ -13,7 +13,7 @@
     <form id="fitness" action="process.php" method="POST">
         <div enter-name>
             <p>Имя</p>
-            <input type="text" name="name" placeholder="Введите имя">
+            <input type="text" name="username" placeholder="Введите имя">
         </div>
         <div enter-email>
             <p>Электронная почта</p>
@@ -26,11 +26,11 @@
         <div tariff>
             <p>Тарифный план</p>
             <select name="tariff">
-            <option value="one-time-subscription">Разовый абонемент</option>
-            <option value="unlimit">Безлимит</option>
-            <option value="four-visits">4 посещения</option>
-            <option value="eight-visits">8 посещений</option>
-            <option value="twelve-visits">12 посещений</option>
+            <option value="Разовый абонемент">Разовый абонемент</option>
+            <option value="Безлимит">Безлимит</option>
+            <option value="4 посещения">4 посещения</option>
+            <option value="8 посещений">8 посещений</option>
+            <option value="12 посещений">12 посещений</option>
         </select>
         </div>
         <div personal-trainer>
@@ -38,10 +38,10 @@
         </div>
         <div time-of-visits>
             <p>Время посещения</p>
-            <input type="radio" name="role" value="morning"> 7:00 - 11:00<br>
-            <input type="radio" name="role" value="noon">11:00 - 15:00<br>
-            <input type="radio" name="role" value="afternon">15:00 - 19:00<br>
-            <input type="radio" name="role" value="evening">19:00 - 23:00<br>
+            <input type="radio" name="time_of_visits" value="утро"> 7:00 - 11:00<br>
+            <input type="radio" name="time_of_visits" value="обед">11:00 - 15:00<br>
+            <input type="radio" name="time_of_visits" value="после обеда">15:00 - 19:00<br>
+            <input type="radio" name="time_of_visits" value="вечер">19:00 - 23:00<br>
         </div>
         
         <button type="submit">Отправить</button>

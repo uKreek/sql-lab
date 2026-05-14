@@ -9,48 +9,56 @@
     <title>Data</title>
 </head>
 <body>
+
+<?php
+require 'db.php';
+require 'Guest.php';
+
+$guest = new Guest($pdo);
+$all = $guest->getAll();
+?>
+
 <div class="container">
-<?php if(isset($_SESSION['errors'])): ?>
-        <div class="error-list">
-        <?php foreach($_SESSION['errors'] as $error): ?>
-            <p><?= $error ?></p>
+
+<?php $count_query = $pdo->query("SELECT COUNT(*) FROM guests");
+$total_users = $count_query->fetchColumn(); 
+
+$query = "SELECT * FROM users WHERE age >= 18 ORDER BY created_at DESC"; ?>
+
+<h2>Данные о посетителях:</h2>
+<p>Всего гостей: <strong><?= $total_users ?></strong></p>
+<table class="table">
+    <thead>
+		<tr>
+			<th>Имя</th>
+			<th>Почта</th>
+			<th>Возраст</th>
+			<th>Тариф</th>
+			<th>Тренер</th>
+			<th>Время</th>
+            <th>Дата заявки</th>
+		</tr>
+	</thead>
+    <tbody>
+    
+        <?php foreach($all as $row): ?>
+        <tr>
+        <td><?= $row['email'] ?></td>
+        <td><?= $row['username'] ?></td>
+        <td><?= $row['age']?></td>
+        <td><?= $row['tariff'] ?></td>
+        <td><?= $row['personal_trainer'] ? 'Да' : 'Нет' ?></td>
+        <td><?= $row['time_of_visits'] ?></td>
+        <td><?= $row['created_at'] ?></td>
+        </tr>
         <?php endforeach; ?>
-        </div>
-    <?php unset($_SESSION['errors']); ?>
-<?php endif; ?>
-
-<?php if(isset($_SESSION['name'])): ?>
-    <h3>Данные из сессии:</h3>
-    <div class="card">
-    <ul>
-        <li>Имя: <?= $_SESSION['name'] ?></li>
-        <li>Email: <?= $_SESSION['email'] ?></li>
-    </ul>
-</div>
-<?php else: ?>
-    <p>Данных пока нет.</p>
-<?php endif; ?>
-
-
-<?php require_once 'UserInfo.php';
-$info = UserInfo::getInfo(); 
-
-
-echo "<h3>Информация о пользователе:</h3>"; ?>
-
-<div class="card">
-    <?php foreach ($info as $key => $val) {
-        echo htmlspecialchars($key) . ': ' . htmlspecialchars($val) . '<br>';
-    } ?>
-</div>
+        
+    </tbody>
+</table>
 
 <div class="nav">
-    <a href="form.html">Заполнить форму</a> |
-    <a href="view.php">Посмотреть все данные</a> |
-    <a href="cookies.php">Куки</a>
-</div>  
-
-</div>
+<a href="form.html">Заполнить форму</a>
+<div>
 </body> 
 </html>
 
