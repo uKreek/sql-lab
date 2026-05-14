@@ -1,0 +1,73 @@
+:root {
+    --primary: #551136;
+    --bg: #c97ba3;
+    --text: #232222;
+    --card-bg: #ffffff;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    margin: 0;
+    padding: 40px 20px;
+}
+
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h1, h3 { color: var(--primary); }
+
+/* Карточки */
+.card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border-left: 5px solid var(--primary);
+}
+
+/* API данные (форматирование JSON/Массива) */
+pre {
+    background: #fff;
+    color: var(--primary);
+    padding: 15px;
+    border-radius: 8px;
+    overflow-x: auto;
+    font-size: 0.9em;
+}
+
+/* Навигация */
+.nav {
+    color: #fff;
+    flex: 0 0 auto;
+    margin-bottom: 0%;
+    padding: 15px;
+    background: #59b98f;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.nav a {
+    text-decoration: none;
+    color: var(--card-bg);
+    font-weight: bold;
+    margin: 0 15px;
+    transition: opacity 0.2s;
+}
+
+.nav a:hover { opacity: 0.7; }
+
+/* Ошибки */
+.error-list {
+    background: #fee;
+    color: #c00;
+    border-radius: 8px;
+    padding: 15px;
+}
+

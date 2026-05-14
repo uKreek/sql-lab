@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Fitness</title>
+</head>
+<body>
+    
+    <div form-container>
+    <h1>Новая жизнь с понедельника</h1>
+    <form id="fitness" action="process.php" method="POST">
+        <div enter-name>
+            <p>Имя</p>
+            <input type="text" name="username" placeholder="Введите имя">
+        </div>
+        <div enter-email>
+            <p>Электронная почта</p>
+            <input type="email" name="email" placeholder="Введите адрес">
+        </div>
+        <div entare-age>
+            <p>Дата рождения</p>
+            <input type="date" name="birth-date">
+        </div>
+        <div tariff>
+            <p>Тарифный план</p>
+            <select name="tariff">
+            <option value="one-time-subscription">Разовый абонемент</option>
+            <option value="unlimit">Безлимит</option>
+            <option value="four-visits">4 посещения</option>
+            <option value="eight-visits">8 посещений</option>
+            <option value="twelve-visits">12 посещений</option>
+        </select>
+        </div>
+        <div personal-trainer>
+            <input type="checkbox" name="personal-trainer">Хочу заниматься с тренером<br>
+        </div>
+        <div time-of-visits>
+            <p>Время посещения</p>
+            <input type="radio" name="role" value="morning"> 7:00 - 11:00<br>
+            <input type="radio" name="role" value="noon">11:00 - 15:00<br>
+            <input type="radio" name="role" value="afternon">15:00 - 19:00<br>
+            <input type="radio" name="role" value="evening">19:00 - 23:00<br>
+        </div>
+        
+        <button type="submit">Отправить</button>
+        </div>
+    </form>
+    <script src="script.js"></script>
+</body>
+</html>
